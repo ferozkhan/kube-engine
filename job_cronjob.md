@@ -20,7 +20,11 @@ spec:
                   command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
             restartPolicy: Never
         backoffLimit: 4
-```  
+```
+
+```shell script
+kubectl get job
+```
 
 Cronjob
 =
