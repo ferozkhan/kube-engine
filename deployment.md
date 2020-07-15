@@ -28,3 +28,15 @@ spec:
 * spec.replica: the number of replica pod
 * spec.template: A template pod descriptor which defines the pod which will be created.
 * spec.selector: the deployment will manage all pods whose label matches this selector.
+
+
+Perform rolling update to the new container version:
+
+```shell script
+kubectl set image deployment/candy-deployment candy-ws=linuxacademycontent/candy-service:3 --record
+kubectl rollout status deployment/candy-deployment
+kubectl rollout history deployment/candy-deployment
+kubectl rollout undo deployment/candy-deployment
+```
+
+
