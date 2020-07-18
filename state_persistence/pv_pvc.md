@@ -13,7 +13,7 @@ kind: PersistentVolume
 metadata:
     - name: my-pv
 spec:
-    storageClass: local-storage
+    storageClassName: local-storage
     capacity:
         storage: 1Gi
     accessModes:
@@ -28,7 +28,7 @@ kind: PersistentVolumeClaim
 metadata:
     name: my-pvc
 spec:
-    storageClass: local-storage
+    storageClassName: local-storage
     accessModes:
         - ReadWriteOnce
     resources:
