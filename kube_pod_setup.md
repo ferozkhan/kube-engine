@@ -13,7 +13,7 @@ data:
     candy.peppermint.power=100000000
     candy.nougat-armor.strength=10
 ```
-
+    
 ```shell script
 kubectl apply -f candy-service-config.yml
 ```
