@@ -4,12 +4,12 @@ Deployment
 
 
 ```yaml
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: rolling-update
 spec:
-    replica: 3
+    replicas: 3
     selector:
         matchLabels:
             label: nginx
@@ -22,7 +22,7 @@ spec:
                 - name: nginx
                   image: nginx:1.7.1
                   ports:
-                    containerPort: 80
+                    - containerPort: 80
 ```
 
 ### Perform a rolling update:
@@ -50,28 +50,28 @@ kubectl rollout undo deployment/rolling-deployment --to-revision=1
 ### maxSurge and maxUnavailable
 
 ```yaml
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: rolling-deployment
 spec:
-    Strategy:
+    strategy:
         rollingUpdate:
             maxSurge: 25%
             maxUnavailable: 25%
-    replica: 3
-    selectors:
+    replicas: 3
+    selector:
         matchLabels:
             app: nginx
     template:
         metadata:
             labels:
                 app: nginx
-    spec:
-        containers:
-            - name: nginx
-              image: nginx:1.7.1
-              ports:
-                containerPort: 80
+        spec:
+            containers:
+                - name: nginx
+                  image: nginx:1.7.1
+                  ports:
+                    - containerPort: 80
 ```
 
