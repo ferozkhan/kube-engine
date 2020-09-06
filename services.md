@@ -8,21 +8,21 @@ replica.
 
 
 ```yaml
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: nginx-deployment
 spec:
     replicas: 3
-    selectors:
-        matchLabel:
+    selector:
+        matchLabels:
             app: nginx
     template:
         metadata:
             labels:
                 name: nginx
         spec:
-            container:
+            containers:
                 - name: nginx
                   image: nginx:1.7.9
                   ports:
@@ -41,7 +41,7 @@ spec:
     selector:
         app: nginx
     ports:
-        - protocol: tcp
+        - protocol: TCP
           port: 8080
           targetPort: 80
 ```

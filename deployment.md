@@ -4,12 +4,12 @@ Deployment
 A deployment is kubernetes object that can be created using a descriptor.
 
 ```yaml
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: nginx-deployment
 spec:
-    replica: 3
+    replicas: 3
     selector:
         matchLabels:
             app: nginx
